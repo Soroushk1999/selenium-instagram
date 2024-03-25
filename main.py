@@ -12,8 +12,8 @@ driver.get("https://www.instagram.com/accounts/login/")
 # Enter your Instagram username and password
 username_field = driver.find_element(By.NAME, "username")
 password_field = driver.find_element(By.NAME, "password")
-username_field.send_keys("your_username")
-password_field.send_keys("your_password")
+username_field.send_keys("test_automation_bot")
+password_field.send_keys("44139890")
 
 # Submit the login form
 password_field.send_keys(Keys.RETURN)
