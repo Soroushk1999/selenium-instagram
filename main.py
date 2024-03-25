@@ -1,10 +1,13 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 import time
 
 # Initialize the Chrome driver
-driver = webdriver.Chrome()
+chrome_options = Options()
+chrome_options.add_argument("--headless")  # Run Chrome in headless mode
+driver = webdriver.Chrome(options=chrome_options)
 
 # Navigate to Instagram's login page
 driver.get("https://www.instagram.com/accounts/login/")
@@ -24,11 +27,13 @@ time.sleep(5)
 # Navigate to the Direct Messages page
 driver.get("https://www.instagram.com/direct/inbox/")
 
+
 # Function to send auto-reply
 def send_auto_reply(message):
     message_box = driver.find_element(By.TAG_NAME, "textarea")
     message_box.send_keys(f"Thank you for your message! We will get back to you as soon as possible.")
     message_box.send_keys(Keys.RETURN)
+
 
 # Check for new messages and send auto-reply
 while True:
